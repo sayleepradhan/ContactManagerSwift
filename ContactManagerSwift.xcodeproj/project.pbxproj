@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		584367111F4BF76C003B2FB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367101F4BF76C003B2FB0 /* AppDelegate.swift */; };
-		584367131F4BF76C003B2FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367121F4BF76C003B2FB0 /* ViewController.swift */; };
 		584367161F4BF76C003B2FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 584367141F4BF76C003B2FB0 /* Main.storyboard */; };
 		584367191F4BF76C003B2FB0 /* ContactManagerSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584367171F4BF76C003B2FB0 /* ContactManagerSwift.xcdatamodeld */; };
 		5843671B1F4BF76C003B2FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5843671A1F4BF76C003B2FB0 /* Assets.xcassets */; };
 		5843671E1F4BF76C003B2FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5843671C1F4BF76C003B2FB0 /* LaunchScreen.storyboard */; };
 		584367291F4BF76C003B2FB0 /* ContactManagerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367281F4BF76C003B2FB0 /* ContactManagerSwiftTests.swift */; };
 		584367341F4BF76D003B2FB0 /* ContactManagerSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367331F4BF76D003B2FB0 /* ContactManagerSwiftUITests.swift */; };
+		584367551F4C0547003B2FB0 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367541F4C0547003B2FB0 /* AddContactViewController.swift */; };
+		584367581F4C0E7D003B2FB0 /* ContactDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367571F4C0E7D003B2FB0 /* ContactDetailTableViewCell.swift */; };
+		5843675A1F4C0F3F003B2FB0 /* DisplayContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367591F4C0F3F003B2FB0 /* DisplayContactViewController.swift */; };
+		584367631F4C123A003B2FB0 /* ContactDBModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367611F4C123A003B2FB0 /* ContactDBModel+CoreDataClass.swift */; };
+		584367641F4C123A003B2FB0 /* ContactDBModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367621F4C123A003B2FB0 /* ContactDBModel+CoreDataProperties.swift */; };
+		584367661F4C1546003B2FB0 /* SearchContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367651F4C1546003B2FB0 /* SearchContactViewController.swift */; };
+		584367681F4C15EC003B2FB0 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584367671F4C15EC003B2FB0 /* ContactTableViewCell.swift */; };
+		5843676B1F4C2634003B2FB0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843676A1F4C2634003B2FB0 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +44,6 @@
 /* Begin PBXFileReference section */
 		5843670D1F4BF76C003B2FB0 /* ContactManagerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactManagerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		584367101F4BF76C003B2FB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		584367121F4BF76C003B2FB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		584367151F4BF76C003B2FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		584367181F4BF76C003B2FB0 /* ContactManagerSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactManagerSwift.xcdatamodel; sourceTree = "<group>"; };
 		5843671A1F4BF76C003B2FB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		5843672F1F4BF76C003B2FB0 /* ContactManagerSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactManagerSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		584367331F4BF76D003B2FB0 /* ContactManagerSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManagerSwiftUITests.swift; sourceTree = "<group>"; };
 		584367351F4BF76D003B2FB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		584367541F4C0547003B2FB0 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		584367571F4C0E7D003B2FB0 /* ContactDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewCell.swift; sourceTree = "<group>"; };
+		584367591F4C0F3F003B2FB0 /* DisplayContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayContactViewController.swift; sourceTree = "<group>"; };
+		584367611F4C123A003B2FB0 /* ContactDBModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactDBModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		584367621F4C123A003B2FB0 /* ContactDBModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContactDBModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		584367651F4C1546003B2FB0 /* SearchContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactViewController.swift; sourceTree = "<group>"; };
+		584367671F4C15EC003B2FB0 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		5843676A1F4C2634003B2FB0 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +113,10 @@
 		5843670F1F4BF76C003B2FB0 /* ContactManagerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5843675B1F4C115F003B2FB0 /* Model */,
+				584367561F4C0E57003B2FB0 /* Views */,
+				584367511F4C0346003B2FB0 /* Controllers */,
 				584367101F4BF76C003B2FB0 /* AppDelegate.swift */,
-				584367121F4BF76C003B2FB0 /* ViewController.swift */,
 				584367141F4BF76C003B2FB0 /* Main.storyboard */,
 				5843671A1F4BF76C003B2FB0 /* Assets.xcassets */,
 				5843671C1F4BF76C003B2FB0 /* LaunchScreen.storyboard */,
@@ -126,6 +142,51 @@
 				584367351F4BF76D003B2FB0 /* Info.plist */,
 			);
 			path = ContactManagerSwiftUITests;
+			sourceTree = "<group>";
+		};
+		584367511F4C0346003B2FB0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				584367541F4C0547003B2FB0 /* AddContactViewController.swift */,
+				584367591F4C0F3F003B2FB0 /* DisplayContactViewController.swift */,
+				584367651F4C1546003B2FB0 /* SearchContactViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		584367561F4C0E57003B2FB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				584367571F4C0E7D003B2FB0 /* ContactDetailTableViewCell.swift */,
+				584367671F4C15EC003B2FB0 /* ContactTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5843675B1F4C115F003B2FB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				584367691F4C261B003B2FB0 /* DataManager */,
+				5843675C1F4C117D003B2FB0 /* Contact */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5843675C1F4C117D003B2FB0 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				584367611F4C123A003B2FB0 /* ContactDBModel+CoreDataClass.swift */,
+				584367621F4C123A003B2FB0 /* ContactDBModel+CoreDataProperties.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		584367691F4C261B003B2FB0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				5843676A1F4C2634003B2FB0 /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +326,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				584367131F4BF76C003B2FB0 /* ViewController.swift in Sources */,
+				584367551F4C0547003B2FB0 /* AddContactViewController.swift in Sources */,
+				5843676B1F4C2634003B2FB0 /* DataManager.swift in Sources */,
+				584367641F4C123A003B2FB0 /* ContactDBModel+CoreDataProperties.swift in Sources */,
 				584367191F4BF76C003B2FB0 /* ContactManagerSwift.xcdatamodeld in Sources */,
+				584367581F4C0E7D003B2FB0 /* ContactDetailTableViewCell.swift in Sources */,
+				5843675A1F4C0F3F003B2FB0 /* DisplayContactViewController.swift in Sources */,
+				584367631F4C123A003B2FB0 /* ContactDBModel+CoreDataClass.swift in Sources */,
+				584367681F4C15EC003B2FB0 /* ContactTableViewCell.swift in Sources */,
 				584367111F4BF76C003B2FB0 /* AppDelegate.swift in Sources */,
+				584367661F4C1546003B2FB0 /* SearchContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +586,7 @@
 				5843673A1F4BF76D003B2FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5843673B1F4BF76D003B2FB0 /* Build configuration list for PBXNativeTarget "ContactManagerSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +595,7 @@
 				5843673D1F4BF76D003B2FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5843673E1F4BF76D003B2FB0 /* Build configuration list for PBXNativeTarget "ContactManagerSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +604,7 @@
 				584367401F4BF76D003B2FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
