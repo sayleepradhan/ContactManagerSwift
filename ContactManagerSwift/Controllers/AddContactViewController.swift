@@ -24,10 +24,16 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
     var phoneNumber = String()
     var zipCode = String()
     
+    var contact: ContactDBModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        if contact != nil {
+            loadData()
+            deleteContactButton.isHidden = false
+        }
+        hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,26 +42,30 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "deleteContact" {
+            DataManager.sharedInstance.context().delete(contact!)
+            DataManager.sharedInstance.saveContext()
+        }
     }
-    */
 
     //MARK : Button actions
-    @IBAction func deleteContactTapped(_ sender: UIButton) {
-    }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        ContactDBModel.initWith(firstName: firstName,
-                                lastName: lastName,
-                                dateOfBirth: dateOfBirth,
-                                phone: phoneNumber,
-                                zipCode: zipCode)
+        if (contact != nil) {
+            saveData()
+        } else {
+            ContactDBModel.initWith(firstName: firstName,
+                                    lastName: lastName,
+                                    dateOfBirth: dateOfBirth,
+                                    phone: phoneNumber,
+                                    zipCode: zipCode)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -85,5 +95,36 @@ class AddContactViewController: UIViewController, UITextFieldDelegate {
             default: break
             }
         }
+    }
+    
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    func loadData() {
+        firstNameTextField.text = contact?.firstName
+        firstName = (contact?.firstName) ?? ""
+        lastNameTextField.text = contact?.lastName ?? ""
+        lastName = (contact?.lastName) ?? ""
+        dateOfBirthTextField.text = contact?.dateOfBirth ?? ""
+        dateOfBirth = (contact?.dateOfBirth) ?? ""
+        phoneNoTextField.text = contact?.phone ?? ""
+        phoneNumber = (contact?.phone) ?? ""
+        zipCodeTextField.text = contact?.zipCode ?? ""
+        zipCode = (contact?.zipCode) ?? ""
+    }
+    
+    func saveData() {
+        contact?.firstName = firstName
+        contact?.lastName = lastName
+        contact?.dateOfBirth = dateOfBirth
+        contact?.phone = phoneNumber
+        contact?.zipCode = zipCode
+        DataManager.sharedInstance.saveContext()
     }
 }

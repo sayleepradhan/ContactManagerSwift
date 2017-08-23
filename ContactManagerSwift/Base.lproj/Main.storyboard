@@ -104,7 +104,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-86-VNE">
+                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-86-VNE">
                                 <rect key="frame" x="144" y="268" width="195" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -120,7 +120,7 @@
                                 </constraints>
                                 <state key="normal" title="Delete Contact"/>
                                 <connections>
-                                    <action selector="deleteContactTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MiP-i2-xUz"/>
+                                    <segue destination="UbB-ag-7m9" kind="presentation" identifier="deleteContact" id="V9w-7w-UFa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXc-7o-fGq">
@@ -190,7 +190,7 @@
         <!--Display Contact View Controller-->
         <scene sceneID="snv-fE-LVs">
             <objects>
-                <viewController id="gCA-mz-w79" customClass="DisplayContactViewController" customModule="ContactManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisplayContactViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gCA-mz-w79" customClass="DisplayContactViewController" customModule="ContactManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MWa-S3-skd"/>
                         <viewControllerLayoutGuide type="bottom" id="Pdm-Za-AWz"/>
@@ -209,7 +209,7 @@
                                 <rect key="frame" x="31" y="148" width="313" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactDetailCell" rowHeight="90" id="6aZ-xj-Pyd" customClass="ContactDetailTableViewCell" customModule="ContactManagerSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactDetailCell" rowHeight="90" id="6aZ-xj-Pyd" customClass="ContactDetailTableViewCell" customModule="ContactManagerSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="313" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6aZ-xj-Pyd" id="hgb-a2-9q8">
@@ -247,13 +247,22 @@
                                     <outlet property="delegate" destination="gCA-mz-w79" id="9dn-hI-iWh"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbH-9q-pnS">
+                                <rect key="frame" x="314" y="45" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="editContact" id="v4x-3R-zno"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SUC-9v-yTa" firstAttribute="leading" secondItem="PjP-eZ-sVR" secondAttribute="leadingMargin" constant="15" id="3zK-uo-q9y"/>
+                            <constraint firstItem="kbH-9q-pnS" firstAttribute="top" secondItem="MWa-S3-skd" secondAttribute="bottom" constant="25" id="J62-ot-LIC"/>
                             <constraint firstItem="SUC-9v-yTa" firstAttribute="top" secondItem="ZLb-En-KbI" secondAttribute="bottom" constant="32" id="Ojs-kX-4yz"/>
                             <constraint firstItem="ZLb-En-KbI" firstAttribute="top" secondItem="MWa-S3-skd" secondAttribute="bottom" constant="60" id="axf-Jw-0BL"/>
                             <constraint firstItem="ZLb-En-KbI" firstAttribute="centerX" secondItem="PjP-eZ-sVR" secondAttribute="centerX" id="b4g-U2-LA5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kbH-9q-pnS" secondAttribute="trailing" constant="15" id="bP7-hk-TGm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SUC-9v-yTa" secondAttribute="trailing" constant="15" id="rhd-uV-KZw"/>
                             <constraint firstItem="Pdm-Za-AWz" firstAttribute="top" secondItem="SUC-9v-yTa" secondAttribute="bottom" constant="15" id="tvJ-6K-Pei"/>
                         </constraints>
@@ -267,7 +276,7 @@
             </objects>
             <point key="canvasLocation" x="4302" y="-383"/>
         </scene>
-        <!--Search Contact View Controller-->
+        <!--Contacts-->
         <scene sceneID="CFZ-cV-0X3">
             <objects>
                 <viewController id="qvf-g4-9Cy" customClass="SearchContactViewController" customModule="ContactManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -290,15 +299,15 @@
                                 <rect key="frame" x="16" y="108" width="343" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="52" id="26b-qA-chr" customClass="ContactTableViewCell" customModule="ContactManagerSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="52" id="26b-qA-chr" customClass="ContactTableViewCell" customModule="ContactManagerSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="26b-qA-chr" id="Kn5-Tu-6c3">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDT-yZ-3S8">
-                                                    <rect key="frame" x="33" y="15" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDT-yZ-3S8">
+                                                    <rect key="frame" x="33" y="25.5" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -311,7 +320,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="vDT-yZ-3S8" id="Vnv-vG-TAj"/>
-                                            <segue destination="gCA-mz-w79" kind="showDetail" identifier="showContact" id="gsF-YH-B3W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -332,7 +340,7 @@
                             <constraint firstItem="aYo-cc-lRW" firstAttribute="leading" secondItem="FWe-8b-hTT" secondAttribute="leading" id="tTa-nP-1LK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9dT-vD-reT">
+                    <navigationItem key="navigationItem" title="Contacts" id="9dT-vD-reT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PQ9-zY-T2i">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" identifier="addContact" id="GEX-p7-9LY"/>
@@ -367,4 +375,7 @@
             <point key="canvasLocation" x="2306.4000000000001" y="134.48275862068968"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="v4x-3R-zno"/>
+    </inferredMetricsTieBreakers>
 </document>

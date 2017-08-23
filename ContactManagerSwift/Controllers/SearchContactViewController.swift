@@ -19,27 +19,21 @@ class SearchContactViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let list = ContactDBModel.fetchAllContacts() {
-            contacts = list
-        }
+        
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let list = ContactDBModel.fetchAllContacts() {
+            contacts = list
+            contactTableView.reloadData()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK : SearchBar Delegate Methods
 
@@ -97,6 +91,19 @@ class SearchContactViewController: UIViewController, UITableViewDataSource, UITa
         }
         cell.textLabel?.text = "\(contact.firstName!) \(contact.lastName!)"
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contact = searchActive
+            ? filteredContacts[indexPath.row]
+            : contacts[indexPath.row]
+        guard let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "DisplayContactViewController") as? DisplayContactViewController else {
+            print("Could not instantiate view controller with identifier of type DisplayContactViewController")
+            return
+        }
+        
+        vc.contact = contact
+        self.navigationController?.pushViewController(vc, animated:true)
     }
 }
 

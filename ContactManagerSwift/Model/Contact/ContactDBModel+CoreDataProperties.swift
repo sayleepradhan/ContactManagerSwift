@@ -26,8 +26,6 @@ extension ContactDBModel {
         var contacts: [ContactDBModel] = []
         let moc = DataManager.sharedInstance.context()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactDBModel")
-//        let predicate = NSPredicate(format: "eventState = %@","Active")
-//        eventFetchRequest.predicate = predicate
         
         do {
             guard let contactList = try moc.fetch(fetchRequest) as? [ContactDBModel] else {
@@ -50,7 +48,6 @@ extension ContactDBModel {
         contact.dateOfBirth = dateOfBirth
         contact.phone = phone
         contact.zipCode = zipCode
-        
         DataManager.sharedInstance.saveContext()
     }
 }
